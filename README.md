@@ -122,6 +122,30 @@ ORDER BY days_visited DESC;
 
 ###### The above code returns the table which shows the customers who visited Danny's 
 
+## What was the first item ordered by each customer? 
+
+```sql
+SELECT DISTINCT(sales.customer_id) AS customer, MIN(sales.order_date) AS first_day, sales.product_id AS item_id, menu.product_name AS item_ordered
+FROM dannys_diner.sales LEFT JOIN dannys_diner.menu
+ON sales.product_id = menu.product_id
+GROUP BY sales.customer_id, sales.product_id, menu.product_name
+ORDER BY sales.customer_id DESC; 
+```
+
+| customer | first\_day               | item\_id | item\_ordered |
+| -------- | ------------------------ | -------- | ------------- |
+| C        | 2021-01-01T00:00:00.000Z | 3        | ramen         |
+| B        | 2021-01-01T00:00:00.000Z | 2        | curry         |
+| B        | 2021-01-04T00:00:00.000Z | 1        | sushi         |
+| B        | 2021-01-16T00:00:00.000Z | 3        | ramen         |
+| A        | 2021-01-01T00:00:00.000Z | 1        | sushi         |
+| A        | 2021-01-01T00:00:00.000Z | 2        | curry         |
+| A        | 2021-01-10T00:00:00.000Z | 3        | ramen         |
+
+###### The above code returns the table which showcases the first item ordered by each customer 
+###### Ex: The item first ordered by customer C was ramen 
+
+
 
 
 
