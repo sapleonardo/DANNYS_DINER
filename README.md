@@ -147,6 +147,22 @@ ORDER BY sales.customer_id DESC;
 
 ## What was the most popular item on the menu and how many times was it ordered per customer? 
 
+```sql
+SELECT DISTINCT(sales.product_id) AS product_num, menu.product_name AS food_item, COUNT(*) AS times_ordered
+FROM dannys_diner.sales LEFT JOIN dannys_diner.menu 
+ON sales.product_id = menu.product_id
+GROUP BY product_num, food_item
+ORDER BY times_ordered DESC;
+```
+
+| product\_num | food\_item | times\_ordered |
+| ------------ | ---------- | -------------- |
+| 3            | ramen      | 8              |
+| 2            | curry      | 4              |
+| 1            | sushi      | 3              |
+###### The above code returns the table which showcases the most popular item on the menu as well as the number of times it was ordered by customers 
+###### Ex: The item which was the most popular was ramen and it was ordered by customers a total of 8 times 
+
 
 
 
