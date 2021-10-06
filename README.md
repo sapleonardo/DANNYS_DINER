@@ -145,6 +145,8 @@ ORDER BY sales.customer_id DESC;
 ###### The above code returns the table which showcases the first item ordered by each customer 
 ###### Ex: The item first ordered by customer C was ramen 
 
+## What was the most popular item on the menu and how many times was it ordered per customer? 
+
 
 
 
